@@ -1,0 +1,4 @@
+flask==1.1.4
+pubchempy
+flask-cors
+gunicorn
