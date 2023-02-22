@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    command: /bin/sh -c 'quasar dev'
+    ports:
+      - '9000:9000'
+    volumes:
+      - './frontend:/usr/src/app/'
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: python src/api.py
+    volumes:
+      - ./backend:/usr/src/app
+    ports:
+      - 5000:5000
